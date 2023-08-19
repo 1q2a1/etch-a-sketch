@@ -25,16 +25,16 @@ body{
 }
 
 .container{
-    border: 3px dotted greenyellow;
+    border: 2px solid black;
 }
 
 .row{
     display: flex;
 }
 
-.cell:hover{
+/* .cell:hover{
     background-color: aqua;
-}
+} */
 
 button{
     padding: 10px;

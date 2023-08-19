@@ -20,7 +20,6 @@ function createContainer(){
     gridSection.appendChild(container)
 }
 
-
 function createGrid(size){
     createContainer()
     let newContainer = document.querySelector(".container")
@@ -31,7 +30,6 @@ function createGrid(size){
         for (j=0; j<size; j++){
             let newDiv = document.createElement("div")
             newDiv.className = "cell"
-            newDiv.style.border = "1px solid black"
             newDiv.style.width = cellSize + "px"
             newDiv.style.height = cellSize + "px"
             newRow.appendChild(newDiv)
@@ -41,19 +39,32 @@ function createGrid(size){
     
     let gridSection = document.querySelector(".grid-section")
     gridSection.appendChild(newContainer)
+
 }
-
-
 
 function changeGridSize(e){
     let oldContainer = document.querySelector(".container")
     oldContainer.remove()
     const gridSize = prompt("Enter Grid Size")
     createGrid(gridSize)
+    addCellHoverEffect()
 }
 
 const gridBtn = document.querySelector("button")
 gridBtn.addEventListener("click", changeGridSize)
 
 // createContainer()
-createGrid(5)
+createGrid(16)
+addCellHoverEffect()
+
+function getRandomRGB(){
+    let r = Math.floor(Math.random()*256)
+    let g = Math.floor(Math.random()*256)
+    let b = Math.floor(Math.random()*256)
+    return `rgb(${r},${g},${b})`
+}
+
+function addCellHoverEffect(){
+    let cells = document.querySelectorAll(".cell")
+    cells.forEach(cell => cell.addEventListener('mouseenter', () => cell.style.backgroundColor=getRandomRGB()))
+}
