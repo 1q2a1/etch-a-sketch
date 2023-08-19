@@ -13,6 +13,10 @@ body{
     width: 100%;
 }
 
+h2{
+    margin-top:10px;
+}
+
 .grid-section{
     height: 100%;
     width: 100%;
@@ -32,12 +36,10 @@ body{
     display: flex;
 }
 
-/* .cell:hover{
-    background-color: aqua;
-} */
 
 button{
     padding: 10px;
     margin: 20px;
     max-height: 50px;
 }
+

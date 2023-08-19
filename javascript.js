@@ -50,13 +50,6 @@ function changeGridSize(e){
     addCellHoverEffect()
 }
 
-const gridBtn = document.querySelector("button")
-gridBtn.addEventListener("click", changeGridSize)
-
-// createContainer()
-createGrid(16)
-addCellHoverEffect()
-
 function getRandomRGB(){
     let r = Math.floor(Math.random()*256)
     let g = Math.floor(Math.random()*256)
@@ -66,5 +59,25 @@ function getRandomRGB(){
 
 function addCellHoverEffect(){
     let cells = document.querySelectorAll(".cell")
-    cells.forEach(cell => cell.addEventListener('mouseenter', () => cell.style.backgroundColor=getRandomRGB()))
+    cells.forEach(cell => cell.addEventListener('mouseenter', () => {
+        if(isMouseDown){cell.style.backgroundColor=getRandomRGB()}
+    }))
 }
+
+const gridBtn = document.querySelector("button")
+gridBtn.addEventListener("click", changeGridSize)
+
+let isMouseDown = false
+document.addEventListener("mouseup", () => {
+    isMouseDown = false
+})
+document.addEventListener('mousedown', (e) => {
+    if (e.button === 0) { 
+        isMouseDown = true;
+    }
+});
+
+createGrid(16)
+addCellHoverEffect()
+
+
