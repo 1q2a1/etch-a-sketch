@@ -22,9 +22,6 @@ function createContainer(){
 
 
 function createGrid(size){
-    let oldContainer = document.querySelector(".container")
-    oldContainer.remove()
-
     createContainer()
     let newContainer = document.querySelector(".container")
     let cellSize = (newContainer.getBoundingClientRect().width)/size
@@ -49,6 +46,8 @@ function createGrid(size){
 
 
 function changeGridSize(e){
+    let oldContainer = document.querySelector(".container")
+    oldContainer.remove()
     const gridSize = prompt("Enter Grid Size")
     createGrid(gridSize)
 }
