@@ -62,6 +62,7 @@ function addCellHoverEffect(){
     cells.forEach(cell => cell.addEventListener('mouseenter', () => {
         if(isMouseDown){cell.style.backgroundColor=getRandomRGB()}
     }))
+    cells.forEach(cell => cell.addEventListener("click", () => cell.style.backgroundColor=getRandomRGB()))
 }
 
 const gridBtn = document.querySelector("button")
